@@ -1,5 +1,7 @@
 # Meu diario de treino
-Investigando meu app de anotações do treino eu encontrei uma opção para exportar os dados de treino, este repositorio é uma analise dos dados do meu treino!!
+Investigando meu app de anotações do treino eu encontrei uma opção para exportar os dados de treino.<br>
+Como já tenho 3 anos de uso do aplicativo, decidi explorar as possibildiades de analises exploratorias dos dados dos meus treinos.<br>
+Logo neste repositorio você vai encontrar as devidas informações!
 
 ## Dados colunares
 as colunas presentes na minha base de dados são:<br>
