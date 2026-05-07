@@ -22,3 +22,12 @@ as colunas presentes na minha base de dados são:<br>
 
 No notbook jupyter, no qual estou explorando os dados, adicionei uma coluna a mais, **"volume_serie"**, onde é calculada o volume total de Kilos (KG) da série, fazendo o numero de repetições (reps) multiplicado pela carga da série (Weight_kg):<br>
 - `reps * Wheight_kg = volume_serie`
+
+## Informações a serem exploradas:
+- Top 5 exercícios com maior volume nas series;
+- top 10 melhores cargas de exercicios;
+- Treino mais longo;
+- Gráfico de evolução no Agachamento, Supino e Levantamento terra;
+    - x -> tempo
+    - y1 -> carga
+    - y2 -> volume serie
