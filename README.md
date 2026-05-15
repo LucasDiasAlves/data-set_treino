@@ -42,7 +42,6 @@ O foco deste projeto é extrair informações relevantes sobre os treinos. As pr
 - 📈 **Gráficos de Evolução** focados nos exercícios de base (Agachamento, Supino e Levantamento Terra), contendo a seguinte estrutura:
   - **Eixo X:** Tempo
   - **Eixo Y1:** Carga (`weight_kg`)
-  - **Eixo Y2:** Volume da série (`volume_serie`)
 
 ## 🛠️ Tecnologias Utilizadas
 
