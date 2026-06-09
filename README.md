@@ -1,5 +1,5 @@
 # 🏋️‍♂️ Meu Diário de Treino: Análise Exploratória de Dados
-
+teste
 Investigando meu aplicativo de anotações de treino, encontrei uma opção para exportar meus dados. Como já possuo **3 anos de histórico de uso** do aplicativo, decidi explorar as possibilidades de realizar uma Análise Exploratória de Dados (EDA) para extrair insights sobre minha evolução e performance ao longo do tempo.
 
 Neste repositório, você encontrará os dados, os processos de tratamento e as análises realizadas.
