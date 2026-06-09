@@ -1,51 +1,36 @@
-# 🏋️‍♂️ Meu Diário de Treino: Análise Exploratória de Dados
-teste
-Investigando meu aplicativo de anotações de treino, encontrei uma opção para exportar meus dados. Como já possuo **3 anos de histórico de uso** do aplicativo, decidi explorar as possibilidades de realizar uma Análise Exploratória de Dados (EDA) para extrair insights sobre minha evolução e performance ao longo do tempo.
+# Data Pipeline: Histórico de Treinos
 
-Neste repositório, você encontrará os dados, os processos de tratamento e as análises realizadas.
+O que começou como uma Análise Exploratória de Dados (EDA) de 3 anos de histórico de treinos, evoluiu para um pipeline completo de Engenharia de Dados.
 
-## 🗂️ Dicionário de Dados
+Este repositório documenta a reestruturação da arquitetura do projeto, saindo de scripts estáticos para um fluxo automatizado e escalável de processamento, armazenamento e visualização utilizando ferramentas padrão da indústria de Big Data.
 
-A base de dados original exportada pelo aplicativo conta com as seguintes colunas:
+## Arquitetura e Tecnologias
 
-| Coluna | Descrição |
-|---|---|
-| `title` | Título ou nome do treino |
-| `start_time` | Data e hora de início |
-| `end_time` | Data e hora de término |
-| `description` | Descrição geral do treino |
-| `exercise_title` | Nome do exercício realizado |
-| `superset_id` | Identificador para séries combinadas (bi-sets, etc.) |
-| `exercise_notes` | Anotações específicas feitas durante o exercício |
-| `set_index` | Número sequencial da série |
-| `set_type` | Tipo da série (ex: aquecimento, falha, normal) |
-| `weight_kg` | Carga utilizada na série (em Quilos) |
-| `reps` | Número de repetições realizadas |
-| `distance_km` | Distância percorrida (para exercícios de cardio) |
-| `duration_seconds` | Duração do exercício em segundos |
-| `rpe` | Percepção Subjetiva de Esforço (Rate of Perceived Exertion) |
+Para suportar o processamento avançado e a criação de painéis dinâmicos, o projeto foi reconstruído sobre a seguinte stack:
 
-## ⚙️ Engenharia de Recursos (Feature Engineering)
+- 🐳 Docker & DevContainers: 
+	Base da infraestrutura. Garante um ambiente de desenvolvimento limpo, isolado e reprodutível (rodando perfeitamente integrado ao VS Code e WSL/Ubuntu).
 
-No Jupyter Notebook onde as análises estão sendo desenvolvidas, foi necessário criar novas métricas para enriquecer as visualizações. Adicionei a coluna **`volume_serie`**, que calcula o volume total de carga (KG) movimentado em uma única série. 
+- ⏱️ Apache Airflow: 
+	O orquestrador do pipeline. Responsável por monitorar a chegada de novos dados brutos e engatilhar as rotinas de processamento de forma automatizada.
 
-O cálculo é feito da seguinte forma:
-> `reps` * `weight_kg` = `volume_serie`
+- ✨ PySpark: 
+	O motor de processamento distribuído. Substitui a manipulação tradicional em Pandas para transformar os dados, realizar cálculos complexos e estruturar os documentos em tempo recorde.
 
-## 🎯 Objetivos da Análise
+- 🍃 MongoDB: 
+	Banco de dados NoSQL orientado a documentos. Escolhido para armazenar as "sessões de treino" aninhadas com seus respectivos exercícios de forma flexível e altamente performática.
 
-O foco deste projeto é extrair informações relevantes sobre os treinos. As principais análises a serem exploradas são:
+- 📊 Metabase: 
+	Ferramenta de Business Intelligence conectada diretamente ao MongoDB, permitindo a construção de dashboards interativos para acompanhamento de recordes e evolução de cargas.
 
-- 🏆 **Top 5 exercícios** com o maior volume nas séries;
-- 💪 **Top 10 melhores cargas** registradas nos exercícios;
-- ⏱️ Identificação do **treino mais longo** do histórico;
-- 📈 **Gráficos de Evolução** focados nos exercícios de base (Agachamento, Supino e Levantamento Terra), contendo a seguinte estrutura:
-  - **Eixo X:** Tempo
-  - **Eixo Y1:** Carga (`weight_kg`)
+## bejtivos da nova estrutura
 
-## 🛠️ Tecnologias Utilizadas
+O foco deste projeto agora é arquitetural e focado em automação:
 
-* **Linguagem:** Python
-* **Manipulação de Dados:** Pandas
-* **Ambiente de Desenvolvimento:** Jupyter Notebook
-* **Visualização de Dados:** Matplotlib / Seaborn
+- **Ingestão Automatizada:** Eliminar o processamento manual através da orquestração de rotinas.
+
+- **Escalabilidade:** Utilizar processamento distribuído capaz de lidar com o crescimento contínuo do histórico de treinos.
+
+- **Modelagem NoSQL:** Aplicar conceitos de modelagem orientada a documentos para manter o contexto analítico das sessões diárias.
+
+- **Self-Service BI:** Disponibilizar os dados limpos em um ambiente de visualização dinâmica para acompanhamento contínuo de métricas esportivas.
