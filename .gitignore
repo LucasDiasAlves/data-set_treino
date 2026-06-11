@@ -1,2 +1,11 @@
 .env
 token.txt
+**/dados_brutos/
+**/datasets/
+**/db-seed/
+**/postgres-db-volume/
+**/metabase-data/
+**/logs/
+*.csv
+*.db
+fernet_key.txt
