@@ -1,36 +1,69 @@
-# Data Pipeline: Histórico de Treinos
+# 🚀 Pipeline de Exploração de Dados (Treinos)
 
-O que começou como uma Análise Exploratória de Dados (EDA) de 3 anos de histórico de treinos, evoluiu para um pipeline completo de Engenharia de Dados.
+Este projeto implementa uma arquitetura de microserviços orientada a dados para extração, transformação e carga (ETL), utilizando as principais ferramentas do ecossistema de Big Data.
 
-Este repositório documenta a reestruturação da arquitetura do projeto, saindo de scripts estáticos para um fluxo automatizado e escalável de processamento, armazenamento e visualização utilizando ferramentas padrão da indústria de Big Data.
+## 🏗️ Arquitetura do Projeto
+A infraestrutura está dividida em 4 pilares isolados, conectados por uma rede virtual externa (`treino_bigdata`):
+1. **MongoDB:** Banco de Dados NoSQL e Interface (Mongo Express).
+2. **Metabase:** Ferramenta de Business Intelligence para Dashboards.
+3. **Apache Spark / Jupyter:** Ambiente de processamento distribuído e prototipagem.
+4. **Apache Airflow:** Orquestrador de pipelines e automação de tarefas.
 
-## Arquitetura e Tecnologias
+---
 
-Para suportar o processamento avançado e a criação de painéis dinâmicos, o projeto foi reconstruído sobre a seguinte stack:
+## ⚙️ Passo a Passo para Ligar o Ambiente
 
-- 🐳 Docker & DevContainers: 
-	Base da infraestrutura. Garante um ambiente de desenvolvimento limpo, isolado e reprodutível (rodando perfeitamente integrado ao VS Code e WSL/Ubuntu).
+Abra o terminal na raiz do projeto (`/opt/exploracao_dados_treino`) e siga a ordem de ignição abaixo:
 
-- ⏱️ Apache Airflow: 
-	O orquestrador do pipeline. Responsável por monitorar a chegada de novos dados brutos e engatilhar as rotinas de processamento de forma automatizada.
+### Passo 0: A Rede Virtual (Apenas na primeira vez)
+Se for a primeira vez rodando o projeto nesta máquina, crie a rede que conecta todos os contêineres:
+```bash
+docker network create --driver bridge treino_bigdata
+```
+---
+### Passo1: Ligar o Banco de Dados (MongoDB)
+```bash
+cd mongodb
+docker compose up -d
+```
+- Mongo Express: http://localhost:8081 (Usuário: admin | Senha: pass)
 
-- ✨ PySpark: 
-	O motor de processamento distribuído. Substitui a manipulação tradicional em Pandas para transformar os dados, realizar cálculos complexos e estruturar os documentos em tempo recorde.
+### Passo 2:Ligar a Camada de Visualização (Metabase)
+```bash
+cd ../metabase
+docker compose up -d
+```
+- Metabase: http://localhost:3000 (Aguarde ~3 min na primeira inicialização)
 
-- 🍃 MongoDB: 
-	Banco de dados NoSQL orientado a documentos. Escolhido para armazenar as "sessões de treino" aninhadas com seus respectivos exercícios de forma flexível e altamente performática.
+### Passo 3:Ligar o Motor de Processamento (Spark/Jupyter)
+```bash
+cd ../spark
+docker compose up -d
+```
+- Para acessar o Jupyter: Rode docker compose logs | grep 'token=' para pegar o link de acesso.
+- Jupyter Notebook: Porta 8889
+- Spark UI: http://localhost:4040 (Ficará ativa apenas quando uma sessão PySpark for iniciada no notebook)
 
-- 📊 Metabase: 
-	Ferramenta de Business Intelligence conectada diretamente ao MongoDB, permitindo a construção de dashboards interativos para acompanhamento de recordes e evolução de cargas.
+### Passo 4: Ligar o Orquestrador (Airflow)
+A inicialização do Airflow requer a configuração de chaves de segurança e permissões de pastas.
 
-## bejtivos da nova estrutura
+```bash
+cd ../airflow
+./pre-setup.sh
+./post-setup.sh
+```
+(Aguarde o término das barras de progresso de cada script)
+- Apache Airflow: http://localhost:8080 (Usuário: admin | Senha: admin)
 
-O foco deste projeto agora é arquitetural e focado em automação:
+---
 
-- **Ingestão Automatizada:** Eliminar o processamento manual através da orquestração de rotinas.
+## Como Desligar o Ambiente
 
-- **Escalabilidade:** Utilizar processamento distribuído capaz de lidar com o crescimento contínuo do histórico de treinos.
+Para desligar todos os serviços sem perder nenhum dado (os volumes garantem a persistência), execute o comando docker compose down dentro de cada respectiva pasta:
 
-- **Modelagem NoSQL:** Aplicar conceitos de modelagem orientada a documentos para manter o contexto analítico das sessões diárias.
-
-- **Self-Service BI:** Disponibilizar os dados limpos em um ambiente de visualização dinâmica para acompanhamento contínuo de métricas esportivas.
+```bash
+cd /opt/exploracao_dados_treino/airflow && docker compose down
+cd ../spark && docker compose down
+cd ../metabase && docker compose down
+cd ../mongodb && docker compose down
+```

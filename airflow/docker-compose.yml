@@ -65,7 +65,7 @@ services:
     entrypoint: bash -c "airflow db init && airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com"
 
 networks:
-  atreino_bigdata:
+  treino_bigdata:
     external: true
 
 volumes:
