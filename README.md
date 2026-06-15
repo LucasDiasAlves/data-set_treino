@@ -67,3 +67,11 @@ cd ../spark && docker compose down
 cd ../metabase && docker compose down
 cd ../mongodb && docker compose down
 ```
+---
+# Próximos passos
+Realziar o ETL do arquivo csv antes de criar o banco de dados, focando em encontrar erros em:
+- repetições, 
+- Kilos,
+- duração de treino;
+Antes de reparar o erro da duração de treino, temos que transformar o campo em data.<br>
+Após limpar estes erros fora da curva, podemos definir IDs para as colunas e criar nosso banco de dados.
