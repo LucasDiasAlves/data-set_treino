@@ -70,8 +70,17 @@ cd ../mongodb && docker compose down
 ---
 # Próximos passos
 Realziar o ETL do arquivo csv antes de criar o banco de dados, focando em encontrar erros em:
-- repetições, 
-- Kilos,
-- duração de treino;
-Antes de reparar o erro da duração de treino, temos que transformar o campo em data.<br>
-Após limpar estes erros fora da curva, podemos definir IDs para as colunas e criar nosso banco de dados.
+**1° Passo**
+- transformar campos de data em datetime
+**2° Passo**
+- plotar gráficos de:
+	- Peso (pode ser todos os exercícios)
+		- para poder investigar valores ``ex:'1200kg'`` que claramente não estão dentro do padrão;
+	- repetições
+		- igualmente a KG, vamos investigar valores que saem do comum;
+	- Data 	
+		- Após transformar os dados em datetime, vamos plotar um gráfico das horas treinadas, com ``end_time - start_time``
+	- duration_seconds
+		- verificar se algum exercício, como cardio e prancha, não estão com a duração errada também
+	- distance_km
+		- por desencargo de consciencia vamos verificar se não há nenhuma marcação errada em km percorridos
