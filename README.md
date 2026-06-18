@@ -68,19 +68,7 @@ cd ../metabase && docker compose down
 cd ../mongodb && docker compose down
 ```
 ---
-# Próximos passos
-Realziar o ETL do arquivo csv antes de criar o banco de dados, focando em encontrar erros em:
-**1° Passo**
-- transformar campos de data em datetime
-**2° Passo**
-- plotar gráficos de:
-	- Peso (pode ser todos os exercícios)
-		- para poder investigar valores ``ex:'1200kg'`` que claramente não estão dentro do padrão;
-	- repetições
-		- igualmente a KG, vamos investigar valores que saem do comum;
-	- Data 	
-		- Após transformar os dados em datetime, vamos plotar um gráfico das horas treinadas, com ``end_time - start_time``
-	- duration_seconds
-		- verificar se algum exercício, como cardio e prancha, não estão com a duração errada também
-	- distance_km
-		- por desencargo de consciencia vamos verificar se não há nenhuma marcação errada em km percorridos
+# Próximos passos:
+
+- Realizar uma documentação das tabelas auxilaires para visuzalização dos gráficos!
+- Documentar arquitetura para o Banco de Dados, como vai se organizar a estrutura dos dados para os gráficos do metabase
