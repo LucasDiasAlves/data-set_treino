@@ -1,0 +1,12 @@
+{
+    "theme": "JupyterLab Dark",
+    "theme-scrollbars": true,
+    "overrides": {
+        "code-font-family": null,
+        "code-font-size": "15px",
+        "content-font-family": null,
+        "content-font-size1": "15px",
+        "ui-font-family": null,
+        "ui-font-size1": "13px"
+    }
+}
