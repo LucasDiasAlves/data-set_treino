@@ -75,7 +75,7 @@ cd ../mongodb && docker compose down
 ---
 
 # Estruturação dados treino:
-``{
+``
   "_id": ObjectId("5099803df3f4948bd2f98391"),
   "data": 13/06/2026 11:37,
   "nome": treino_a,
@@ -101,4 +101,4 @@ cd ../mongodb && docker compose down
                         "repeticoes": 10,
   },
   "ativo": true
-}``
+``
