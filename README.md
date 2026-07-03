@@ -75,30 +75,30 @@ cd ../mongodb && docker compose down
 ---
 
 # Estruturação dados treino:
-``
-  "_id": ObjectId("5099803df3f4948bd2f98391"),
-  "data": 13/06/2026 11:37,
-  "nome": treino_a,
-  "habilidades": ["JavaScript", "Python", "NoSQL"],
-  "exercicios": {
-    "supino": 
-	"serie":
-		"1":
-			"kg":20,
-			"repeticoes": 12,
+	``
+  	"_id": ObjectId("5099803df3f4948bd2f98391"),
+  	"data": 13/06/2026 11:37,
+  	"nome": treino_a,
+  	"habilidades": ["JavaScript", "Python", "NoSQL"],
+  	"exercicios": {
+    		"supino": 
+			"serie":
+				"1":
+					"kg":20,
+					"repeticoes": 12,
 			
-    		"2": 
-			"kg": 40,
-			"repeticoes": 10,
-    "elevacao_lateral":
-	"serie":
-                "1":
-                        "kg":20,
-                        "repeticoes": 12,
+    				"2": 
+					"kg": 40,
+					"repeticoes": 10,
+    		"elevacao_lateral":
+			"serie":
+                		"1":
+                        		"kg":20,
+                        		"repeticoes": 12,
 
-                "2":
-                        "kg": 40,
-                        "repeticoes": 10,
-  },
-  "ativo": true
-``
+                		"2":
+                        		"kg": 40,
+                        		"repeticoes": 10,
+  		},
+  	"ativo": true
+	``
