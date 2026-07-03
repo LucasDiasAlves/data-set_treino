@@ -2,13 +2,21 @@
 
 Este projeto implementa uma arquitetura de microserviços orientada a dados para extração, transformação e carga (ETL), utilizando as principais ferramentas do ecossistema de Big Data.
 
-## 🏗️ Arquitetura do Projeto
+# 📖 Sumário
+
+* [1. Arquitetura do Projeto](##arquitetura-do-projeto)
+* [2. Ligando o ambiente](##passo-a-passo-para-ligar-o-ambiente)
+* [3. Desligando o ambiente](##como-desligar-o-ambiente)
+* [4. Diagrama](#diagrama-do-pipeline)
+
+
+## Aquitetura do Projeto
 A infraestrutura está dividida em 4 pilares isolados, conectados por uma rede virtual externa (`treino_bigdata`):
 1. **MongoDB:** Banco de Dados NoSQL e Interface (Mongo Express).
 2. **Metabase:** Ferramenta de Business Intelligence para Dashboards.
 3. **Apache Spark / Jupyter:** Ambiente de processamento distribuído e prototipagem.
 4. **Apache Airflow:** Orquestrador de pipelines e automação de tarefas.
-
+5. **MinIO:** Object storage para organização de nivel de tratamento dos dados.
 ---
 
 ## ⚙️ Passo a Passo para Ligar o Ambiente
@@ -68,10 +76,9 @@ cd ../metabase && docker compose down
 cd ../mongodb && docker compose down
 ```
 ---
-# Próximos passos:
+# Diagrama do Pipeline
+![Diagrama da Arquitetura do Pipeline](./docs/pipeline_dados_treino.svg)
 
-- Realizar uma documentação das tabelas auxilaires para visuzalização dos gráficos!
-- Documentar arquitetura para o Banco de Dados, como vai se organizar a estrutura dos dados para os gráficos do metabase
 ---
 
 # Estruturação dados treino:
