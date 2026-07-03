@@ -1,8 +1,15 @@
-# 🚀 Pipeline de Exploração de Dados (Treinos)
+# Pipeline de Exploração de Dados (Treinos)
 
 Este projeto implementa uma arquitetura de microserviços orientada a dados para extração, transformação e carga (ETL), utilizando as principais ferramentas do ecossistema de Big Data.
+---
+# Fase atual/proximo passo:
+	- Criar container para o **MinIO**;
+	- tratar dados para o **datalake Silves** - *PAUSADO*;
+	- tratar dados para o **datalake Gold**;
+	- criar arquitetura de dados **MongoDB**;
+	- criar gráficos no **MetaBase**;
 
-# 📖 Sumário
+# Sumário
 
 * [1. Arquitetura do Projeto](##arquitetura-do-projeto)
 * [2. Ligando o ambiente](##passo-a-passo-para-ligar-o-ambiente)
@@ -19,7 +26,7 @@ A infraestrutura está dividida em 4 pilares isolados, conectados por uma rede v
 5. **MinIO:** Object storage para organização de nivel de tratamento dos dados.
 ---
 
-## ⚙️ Passo a Passo para Ligar o Ambiente
+## Passo a Passo para Ligar o Ambiente
 
 Abra o terminal na raiz do projeto (`/opt/exploracao_dados_treino`) e siga a ordem de ignição abaixo:
 
@@ -78,34 +85,3 @@ cd ../mongodb && docker compose down
 ---
 # Diagrama do Pipeline
 ![Diagrama da Arquitetura do Pipeline](./docs/pipeline_dados_treino.svg)
-
----
-
-# Estruturação dados treino:
-	``
-  	"_id": ObjectId("5099803df3f4948bd2f98391"),
-  	"data": 13/06/2026 11:37,
-  	"nome": treino_a,
-  	"habilidades": ["JavaScript", "Python", "NoSQL"],
-  	"exercicios": {
-    		"supino": 
-			"serie":
-				"1":
-					"kg":20,
-					"repeticoes": 12,
-			
-    				"2": 
-					"kg": 40,
-					"repeticoes": 10,
-    		"elevacao_lateral":
-			"serie":
-                		"1":
-                        		"kg":20,
-                        		"repeticoes": 12,
-
-                		"2":
-                        		"kg": 40,
-                        		"repeticoes": 10,
-  		},
-  	"ativo": true
-	``
