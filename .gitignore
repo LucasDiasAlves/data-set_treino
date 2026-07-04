@@ -9,3 +9,4 @@ token.txt
 *.csv
 *.db
 fernet_key.txt
+airflow/postgresql_data/

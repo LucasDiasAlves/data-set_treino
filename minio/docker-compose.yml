@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  minio:
+    image: minio/minio
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+#      - ./minio-data:/data        # Diretório local para dados do MinIO
+      - ./minio-backup:/backup    # Diretório local para armazenar backups
+    command: server /data --console-address ":9001"
+
+    # Definindo as redes que serão usadas pelos serviços.
+    networks:
+      - treino_bigdata # Nome da rede que será usada.
+
+# Configuração das redes que serão usadas no docker-compose.
+networks:
+  treino_bigdata: # Nome da rede.
+    external: # Indica que a rede é externa e já foi criada anteriormente.
+      name: treino_bigdata # Nome da rede externa que será usada.
+
+volumes:
+  minio-data:
+#   minio-backup:
+
