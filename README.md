@@ -84,11 +84,11 @@ cd ../airflow
 Para desligar todos os serviços sem perder nenhum dado (os volumes garantem a persistência), execute o comando docker compose down dentro de cada respectiva pasta:
 
 ```bash
-cd /opt/exploracao_dados_treino/airflow && docker compose down
-cd ../spark && docker compose down
-cd ../metabase && docker compose down
-cd ../mongodb && docker compose down
-cd ../minio && docker compose down
+cd /opt/exploracao_dados_treino/airflow && docker compose stop
+cd ../spark && docker compose stop
+cd ../metabase && docker compose stop
+cd ../mongodb && docker compose stop
+cd ../minio && docker compose stop
 ```
 ---
 # Diagrama do Pipeline
