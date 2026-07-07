@@ -10,3 +10,7 @@ token.txt
 *.db
 fernet_key.txt
 airflow/postgresql_data/
+*.csv
+*.parquet
+minio/minio-data/
+minio/minio-backup/
