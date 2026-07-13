@@ -14,3 +14,5 @@ airflow/postgresql_data/
 *.parquet
 minio/minio-data/
 minio/minio-backup/
+spark/notebooks/teste.ipynb
+spark/notebooks/zoo.orc/
