@@ -5,8 +5,8 @@ Este projeto implementa uma arquitetura de microserviços orientada a dados para
 ---
 # Fase atual/proximo passo:
 - Criar container para o **MinIO**; ✅
-- tratar dados para o **datalake Silves** - *Em Andamento*;
-- tratar dados para o **datalake Gold**;
+- tratar dados para o **datalake Silves**; OK
+- tratar dados para o **datalake Gold**; - **Em andamento**
 - criar arquitetura de dados **MongoDB**;
 - criar gráficos no **MetaBase**;
 
