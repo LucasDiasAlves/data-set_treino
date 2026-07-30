@@ -22,7 +22,7 @@ services:
 # Configuração das redes que serão usadas no docker-compose.
 networks:
   treino_bigdata: # Nome da rede.
-    external: # Indica que a rede é externa e já foi criada anteriormente.
+    external: True# Indica que a rede é externa e já foi criada anteriormente.
       name: treino_bigdata # Nome da rede externa que será usada.
 
 volumes:
