@@ -1,4 +1,4 @@
-# Pipeline de Exploração de Dados (Treinos)
+# Pipeline de Exploração de Dados (Treinos).
 
 Este projeto implementa uma arquitetura de microserviços orientada a dados para extração, transformação e carga (ETL), utilizando as principais ferramentas do ecossistema de Big Data.
 
