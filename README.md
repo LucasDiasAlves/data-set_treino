@@ -16,6 +16,7 @@ Este projeto implementa uma arquitetura de microserviços orientada a dados para
 * [2. Ligando o ambiente](##passo-a-passo-para-ligar-o-ambiente)
 * [3. Desligando o ambiente](##como-desligar-o-ambiente)
 * [4. Diagrama](#diagrama-do-pipeline)
+* [5. Modelagem dados] (##modelagem-dados-mongodb)
 
 
 ## Aquitetura do Projeto
@@ -93,3 +94,21 @@ cd ../minio && docker compose stop
 ---
 # Diagrama do Pipeline
 ![Diagrama da Arquitetura do Pipeline](./docs/pipeline_dados_treino.svg)
+
+---
+# Modelagem dados MongoDB
+
+```json
+{
+  "data": "projeto-exemplo",
+  "nome_treino": "treino b",
+  "descricao": "Um exemplo de JSON no README",
+  "exercicios": {
+    "remada": {
+        "serie": 1,
+        "carga": "20kg",
+    },
+  },
+  "tags": ["exemplo", "documentacao", "markdown"]
+}
+```
