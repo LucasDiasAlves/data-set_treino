@@ -100,13 +100,16 @@ cd ../minio && docker compose stop
 
 ```json
 {
-  "data": "projeto-exemplo",
-  "nome_treino": "treino b",
-  "descricao": "Um exemplo de JSON no README",
-  "exercicios": {
+  "id_": "objact_id()",
+  "start_time": "00 00 0000 00:00",
+  "end_time": "00 00 0000 00:00",
+  "title": "treino X",
+  "exercicios_title": {
     "remada": {
-        "serie": 1,
-        "carga": "20kg",
+        "serie":{
+
+           "carga": "20kg",
+      },
     },
   },
   "tags": ["exemplo", "documentacao", "markdown"]
